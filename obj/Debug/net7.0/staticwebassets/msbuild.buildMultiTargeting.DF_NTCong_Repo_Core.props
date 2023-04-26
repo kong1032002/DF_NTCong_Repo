@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\DF_NTCong_Repo_Core.props" />
+</Project>
