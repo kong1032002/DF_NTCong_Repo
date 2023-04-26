@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace DF_NTCong_Repo_Core.Models;
+﻿namespace DF_NTCong_Repo_Core.Models;
 
 public partial class Sinhvien
 {

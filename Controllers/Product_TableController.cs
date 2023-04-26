@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using DF_NTCong_Repo_Core.Models;
+using DF_NTCong_Repo_Core.Models.DAL;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using DF_NTCong_Repo_Core.Models;
-using DF_NTCong_Repo_Core.Models.DAL;
 
 namespace DF_NTCong_Repo_Core.Controllers
 {
@@ -27,12 +22,12 @@ namespace DF_NTCong_Repo_Core.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product_Table>>> GetProduct_Table()
         {
-          //if (_context.Product_Table == null)
-          //{
-          //    return NotFound();
-          //}
-          //  return await _context.Product_Table.ToListAsync();
-            
+            //if (_context.Product_Table == null)
+            //{
+            //    return NotFound();
+            //}
+            //  return await _context.Product_Table.ToListAsync();
+
             return _productRepository.GetProducts().ToList();
         }
 
@@ -40,10 +35,10 @@ namespace DF_NTCong_Repo_Core.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Product_Table>> GetProduct_Table(int id)
         {
-          if (_productRepository.GetProducts() == null)
-          {
-              return NotFound();
-          }
+            if (_productRepository.GetProducts() == null)
+            {
+                return NotFound();
+            }
             var product_Table = _productRepository.GetProductById(id);
 
             if (product_Table == null)
@@ -91,10 +86,10 @@ namespace DF_NTCong_Repo_Core.Controllers
         [HttpPost]
         public async Task<ActionResult<Product_Table>> PostProduct_Table(Product_Table product_Table)
         {
-          if (_productRepository.GetProducts() == null)
-          {
-              return Problem("Entity set 'DataContext.Product_Table'  is null.");
-          }
+            if (_productRepository.GetProducts() == null)
+            {
+                return Problem("Entity set 'DataContext.Product_Table'  is null.");
+            }
             _productRepository.InsertProduct(product_Table);
             try
             {
